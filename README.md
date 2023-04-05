@@ -6,8 +6,8 @@ This repository contains an extension for Unity UI Builder that allows you to di
 ## Installation
 
 Clone the repository to your local machine.
-Copy the c# file into your Unity project's "Assets" folder.
-Open the UI Builder in Unity, and you should see a new button labeled "Prefab Viewer" in the toolbar under Library/Project/Custom Controls.
+Copy the C# file into your Unity project's "Assets" folder.
+Open the UI Builder in Unity, and you should see a new button labeled "PrefabView" in the toolbar under Library/Project/Custom Controls.
 
 ## Usage
 
