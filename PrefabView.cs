@@ -12,6 +12,7 @@ public class PrefabView : VisualElement
     private Rect currentContentRect;
     private float zoom = 30f;
     private Bounds bounds;
+    private Color color;
 
     public new class UxmlFactory : UxmlFactory<PrefabView, UxmlTraits>
     {
@@ -25,8 +26,13 @@ public class PrefabView : VisualElement
         generateVisualContent += OnGenerateVisualContent;
         
         style.flexGrow = 1;
-        style.backgroundColor = new StyleColor( resolvedStyle.backgroundColor != Color.clear ? resolvedStyle.backgroundColor :
-            EditorGUIUtility.isProSkin ? new Color32(56, 56, 56, 255) : new Color32(194, 194, 194, 255));
+        color = resolvedStyle.backgroundColor != Color.clear && resolvedStyle != null
+            ?
+            resolvedStyle.backgroundColor
+            :
+            EditorGUIUtility.isProSkin
+                ? new Color32(56, 56, 56, 255)
+                : new Color32(194, 194, 194, 255);
     }
 
     public void SelectPrefab(GameObject selectedPrefab)
@@ -81,9 +87,9 @@ public class PrefabView : VisualElement
     private void RenderPrefabPreview()
     {
         previewUtility.cameraFieldOfView = zoom;
-        previewUtility.camera.clearFlags = CameraClearFlags.Nothing;
-        previewUtility.camera.cameraType = CameraType.Game;
-        previewUtility.camera.backgroundColor = resolvedStyle.backgroundColor;
+        previewUtility.camera.clearFlags = CameraClearFlags.Color;
+        previewUtility.camera.cameraType = CameraType.SceneView;
+        previewUtility.camera.backgroundColor = color;
         previewUtility.camera.transform.SetPositionAndRotation(
             -Vector3.forward * (bounds.size.magnitude * zoom * 0.1f),
             Quaternion.identity);
