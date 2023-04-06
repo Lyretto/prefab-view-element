@@ -3,7 +3,7 @@ A Visual Element to preview a prefab for Unity's UI Builder.
 
 This repository contains an extension for Unity UI Builder that allows you to display a prefab within the editor UI. With this extension, you can easily use the element in the UI Builder and assign a prefab to be selected using code.
 
-![UI Builder with PrefabView Element](/prefabview-screenshot?raw=true "UI Builder with PrefabView Element")
+![UI Builder with PrefabView Element](/prefabview-screenshot.PNG?raw=true "UI Builder with PrefabView Element")
 
 ## Installation
 
